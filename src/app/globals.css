@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  width: 25px;
+  border-radius: 50%;
+}
+
+:root {
+  --scroll-pos: 0%;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(
+    to bottom,
+    #f8f8f8 var(--scroll-pos),
+    #ffcc00 100%
+  );
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: url("/skateboard.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  cursor: grab;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  filter: brightness(1.2);
+  cursor: grabbing;
+}
+
+
+
+
+
+.bg-texture {
+  background-image: url("/bg-texture.webp");
+  background-size: 720px 460px;
+  background-repeat: repeat;
+  background-position: center;
+}
+
+.button-cutout {
+  position: relative;
+  filter: drop-shadow(0 1px 0 #000) drop-shadow(-1px 0 0 #000)
+    drop-shadow(1px 0 0 #000) drop-shadow(0 -1px 0 #000)
+    drop-shadow(8px 8px 0 #000);
+
+  &:hover {
+    filter: drop-shadow(0 1px 0 #000) drop-shadow(-1px 0 0 #000)
+      drop-shadow(1px 0 0 #000) drop-shadow(0 -1px 0 #000)
+      drop-shadow(2px 2px 0 #000);
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: calc(100% - 1px);
+    content: "";
+    background: inherit;
+    width: 1rem;
+    height: 100%;
+    clip-path: polygon(
+      23% 19%,
+      0 0,
+      100% 0,
+      100% 100%,
+      0 100%,
+      29% 79%,
+      9% 80%,
+      0 33%
+    );
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: calc(100% - 1px);
+    content: "";
+    background: inherit;
+    width: 1rem;
+    height: 100%;
+    clip-path: polygon(
+      100% 0,
+      74% 28%,
+      100% 29%,
+      100% 70%,
+      84% 78%,
+      100% 100%,
+      0 100%,
+      0 0
+    );
+  }
+}
+
+.stack-layout {
+  display: grid;
+  grid-template-areas: "stack";
+  place-items: center;
+}
+
+.stack-layout > * {
+  grid-area: stack;
+}
+
+.skater-scribble-path {
+  opacity: 0.8;
+  stroke-dasharray: 2300;
+  stroke-dashoffset: -2300;
+  transition: stroke-dashoffset 1s ease-in-out 0.2s;
+  transform-origin: center center;
+}
+
+.skater:hover .skater-scribble-path {
+  stroke-dashoffset: 0;
+}
+
+.slide-in-hidden {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+@keyframes slide-in {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes pulse-low {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 120, 0, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 160, 0, 0.45);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 120, 0, 0.25);
+  }
+}
+
+.animate-pulse-low {
+  animation: pulse-low 4s infinite ease-in-out;
+}
+
+
+@keyframes floatCard {
+  0% {
+    transform: translateY(0px);
+    box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.4);
+  }
+  50% {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.45);
+  }
+  100% {
+    transform: translateY(0px);
+    box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.4);
+  }
+}
+
+
