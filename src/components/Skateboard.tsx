@@ -34,7 +34,7 @@ type GLTFResult = GLTF & {
     Truck1: THREE.Mesh
     Truck2: THREE.Mesh
   }
-  materials: {}
+  materials: object;
 }
 
 export function Skateboard({
@@ -44,7 +44,7 @@ export function Skateboard({
     const wheelRefs = useRef<THREE.Object3D[]>([])
 
 
-  const { nodes } = useGLTF('/skateboard.gltf') as GLTFResult;
+  const { nodes } = useGLTF("/skateboard.gltf") as unknown as GLTFResult;
 
   // Wheel Textures
     const wheelTextures = useTexture(wheelTextureURLs)
@@ -121,7 +121,7 @@ export function Skateboard({
         normalScale: new THREE.Vector2(.3,.3),
         metalness: .8,
         roughness: .25
-      }), [truckColor]
+      }), [truckColor, metalNormal]
     )
 
 
