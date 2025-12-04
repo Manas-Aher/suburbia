@@ -6,7 +6,7 @@ import { SkaterScribble } from './SkaterScribble';
 import clsx from 'clsx';
 
 type Props = {
-    skater: Content.SkateboardDocument;
+    skater: Content.SkaterDocument;
     index: number;
 }
 
