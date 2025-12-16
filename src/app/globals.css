@@ -2,41 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-::-webkit-scrollbar {
-  width: 25px;
-  border-radius: 50%;
+::-webkit-scrollbar{
+  width: 0px;
 }
-
-:root {
-  --scroll-pos: 0%;
-}
-
-::-webkit-scrollbar-track {
-  background: linear-gradient(
-    to bottom,
-    #f8f8f8 var(--scroll-pos),
-    #ffcc00 100%
-  );
-  border-radius: 20px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: url("/skateboard.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 20px;
-  cursor: grab;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  filter: brightness(1.2);
-  cursor: grabbing;
-}
-
-
-
-
 
 .bg-texture {
   background-image: url("/bg-texture.webp");
